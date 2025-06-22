@@ -5,10 +5,10 @@ name: CI
 on:
   push:
     # при push в ветку master
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
     # при pull_request в ветку master
-    branches: [ master ]
+    branches: [ main ]
     
 # список действий после триггера on
 jobs:
