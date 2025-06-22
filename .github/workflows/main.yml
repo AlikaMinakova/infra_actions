@@ -1,0 +1,31 @@
+# имя workflow
+name: CI
+
+# при каком событии запускать workflow
+on:
+  push:
+    # при push в ветку master
+    branches: [ master ]
+  pull_request:
+    # при pull_request в ветку master
+    branches: [ master ]
+    
+# список действий после триггера on
+jobs:
+  # Определяется job с именем build
+  # runs-on: Она будет выполняться в виртуальной машине на Ubuntu (последней версии)
+  build:
+    runs-on: ubuntu-latest
+    # этапы шагов работы
+    steps:
+    #  это шаг, который клонирует репозиторий в среду GitHub Actions
+    - uses: actions/checkout@v2
+    # name: имя шага (необязательно)
+    - name: Run a one-line script
+      run: echo Hello, world!
+
+    - name: Run a multy-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy yout project.
+    
